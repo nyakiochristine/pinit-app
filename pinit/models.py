@@ -74,3 +74,9 @@ class Comment(models.Model):
         
     def delete_comment(self):
         self.delete()
+        
+        
+    @classmethod
+    def get_comment_by_image(cls, id):
+        comment = Comment.objects.filter(image_pk=id)
+        return comment
