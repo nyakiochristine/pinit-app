@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bootstrap',
+    'bootstrap5',
     'pinit.apps.PinitConfig',
 
     
@@ -80,7 +80,9 @@ WSGI_APPLICATION = 'instaapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': BASE_DIR / 'postgresql',
+        'NAME': 'instagram',
+        'USER': 'moringa',
+        'PASSWORD': '1246'
     }
 }
 
