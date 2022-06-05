@@ -20,3 +20,11 @@ class Images(models.Model):
     captions = models.CharField(max_length=120)
     posted = models.DateTimeField(auto_now_add=True)
     profile = models.ForeignKey(User,ondelete=models.CASCADE)
+    
+    
+    
+class Comment(models.Model):
+    comment = models.CharField(max_length=100)
+    posted = models.DateTimeField(auto_now_add =True)
+    image = models.ForeignKey(Images,ondelete=models.CASCADE)
+    user = models.ForeignKey(User,ondelete=models.CASCADE)
