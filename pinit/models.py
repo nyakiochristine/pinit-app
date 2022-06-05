@@ -13,6 +13,16 @@ class Profile(models.Model):
     user =models.OneToOneField(User,ondelete=models.CASCADE, primary_key=True)
     
     
+    #class methods
+    def save_profile(self):
+        self.save()
+        
+    def delete_profile(self):
+        self.delete()
+        
+        
+    
+    
 
 
 class Images(models.Model):
