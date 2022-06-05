@@ -31,6 +31,18 @@ class Images(models.Model):
     posted = models.DateTimeField(auto_now_add=True)
     profile = models.ForeignKey(User,ondelete=models.CASCADE)
     
+    #class menthods
+    class Meta:
+        ordering =('-posted',)
+        
+    def save_image(self):
+        self.save()
+        
+    def delete_image(self):
+        self.delete()
+        
+        
+    
     
     
 class Comment(models.Model):
@@ -38,3 +50,11 @@ class Comment(models.Model):
     posted = models.DateTimeField(auto_now_add =True)
     image = models.ForeignKey(Images,ondelete=models.CASCADE)
     user = models.ForeignKey(User,ondelete=models.CASCADE)
+    
+    #class methods'
+    def save_comment(self):
+        self.save()
+        
+        
+    def delete_comment(self):
+        self.delete()
