@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap',
+    'pinit.apps.PinitConfig',
+
+    
 ]
 
 MIDDLEWARE = [
@@ -75,8 +79,8 @@ WSGI_APPLICATION = 'instaapp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': BASE_DIR / 'postgresql',
     }
 }
 
