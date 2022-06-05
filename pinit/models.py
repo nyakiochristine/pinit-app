@@ -10,7 +10,7 @@ from django.contrib.auth.models import  User
 class Profiles(models.Model):
     bio = models.CharField(max_length=200)
     image =models.ImageField(blank=True)
-    user =models.OneToOneField(User,ondelete=models.CASCADE, primary_key=True)
+    user =models.OneToOneField(User,on_delete=models.CASCADE, primary_key=True)
     
     
     #class methods
@@ -18,7 +18,7 @@ class Profiles(models.Model):
         self.save()
         
     def delete_profile(self):
-        self.delete()\
+        self.delete()
             
     @classmethod
     def get_profile_by_name(cls, search_term):
@@ -47,7 +47,7 @@ class Images(models.Model):
     image = models.ImageField(blank=True)
     captions = models.CharField(max_length=120)
     posted = models.DateTimeField(auto_now_add=True)
-    profile = models.ForeignKey(User,ondelete=models.CASCADE)
+    profile = models.ForeignKey(User,on_delete=models.CASCADE)
     
     #class menthods
     class Meta:
@@ -82,8 +82,8 @@ class Images(models.Model):
 class Comment(models.Model):
     comment = models.CharField(max_length=100)
     posted = models.DateTimeField(auto_now_add =True)
-    image = models.ForeignKey(Images,ondelete=models.CASCADE)
-    user = models.ForeignKey(User,ondelete=models.CASCADE)
+    image = models.ForeignKey(Images,on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
     
     #class methods'
     def save_comment(self):
