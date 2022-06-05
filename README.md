@@ -1,4 +1,4 @@
-# Pinit
+# Pinit-App
 
 ## By Christine Mwangi
 
@@ -13,7 +13,7 @@
 
 ## Description
 
-Pinit is an application that allows users to upload photos,create accounts  and comment on other people's posts.
+Pinit-App is an application that allows users to upload photos,create accounts  and comment on other people's posts.
 
 Application Features include:
 
@@ -28,17 +28,17 @@ The following is a live link to the project:
 ## Installation process
 
 To access my repository link:
-[Click here](https://github.com/nyakiochristine/pinit.git)
+[Click here](https://github.com/nyakiochristine/pinit-app.git)
 
 *To clone this repository locally, type the following command on your terminal.*
 
 If using HTTP keys, type:
 
-`https://github.com/nyakiochristine/pinit.git`
+`https://github.com/nyakiochristine/pinit-app.git`
 
 If using SSH keys, then type:
 
-`git@github.com:nyakiochristine/pinit.git`
+`git@github.com:nyakiochristine/pinit-app.git`
 
 On running the commands successfully, you should have a local version of this repository.
 Navigate to the target directory and open it with a prefered IDE :
