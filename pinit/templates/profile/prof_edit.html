@@ -1,0 +1,22 @@
+{% extends 'profile/base.html' %} {% load bootstrap5 %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <h3 >Edit account for {{user.username}}</h3>
+        <div class = "col-md-6">
+            <form action="#" method="POST" class="form-horizontal">
+                {% csrf_token %} {% bootstrap_form form %}
+                <input type="submit" class="btn btn-secondary" value="Update">
+
+            </form>
+        </div>
+    </div>
+    <hr>
+    <footer class="foot bg-dark " style:"font-size:22px;">
+        <h4 class="text-center footmsg">
+            copyright &copy;KrisTech -2022
+
+        </h4>
+    </footer>
+</div>
+{% endblock %}

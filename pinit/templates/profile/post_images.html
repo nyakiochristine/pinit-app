@@ -1,0 +1,20 @@
+{% extends 'profile/base.html' %} {% load bootstrap5 %}
+{% block content %}
+<div class = "container-fluid">
+    <div class = "row">
+        <div class = "col-md-8 poem">
+            <form action="#" method="POST">
+                {% csrf_token %} {% bootstrap_form form %}
+                <input type="submit" class="btn btn-primary btn-large" value="POST">
+            </form>
+        </div>
+    </div>
+    <hr>
+    <footer class="foot bg-dark " style:"font-size:22px;">
+        <h4 class="text-center footmsg">
+            copyright &copy;KrisTech -2022
+
+        </h4>
+    </footer>
+</div>
+{{form.media}} {% endblock %}
