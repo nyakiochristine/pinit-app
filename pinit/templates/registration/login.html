@@ -1,0 +1,52 @@
+{% extends 'registration/base.html'%}
+{% load bootstrap5 %}
+{% block content %}
+
+<div class = 'container-fluid'>
+    <h2 class = 'in text-center'> Pinit</h2>
+    <hr>
+    <div class = 'logo text-center'></div>
+        <img src = "https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" width="150" alt="logo">
+        <div class = 'row'>
+            <div class = 'col-md-4'></div>
+            <div class = 'col-md-4' 'login'>
+                {% if form.errors %}
+                <p >Incorrect paasword.try again</p>
+                {% endif %}
+                <div class ='panel panel-default'>
+                    <div class = 'panel-heading'>
+                        <h3 class = 'hea text-center'>Sign in</h3>
+                    </div>
+                    <div class = 'panel-body'>
+                        <form action="/accounts/login" method="POST">
+                            {% csrf_token %} 
+                            {% bootstrap_form form %}
+                            <div class = 'form-group'>
+                                <input type="submit" class = 'btn btn-primary' value="Login">
+                            </div>
+                            <input type="hidden"  name ="next"  value="/">
+                            <div class = "section" id="sec1">
+                                <p> Don't have an account? Oh Please sign up! 
+                                    <a href="/accounts/register/">Sign up</a>
+                                </p>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+            <hr>
+        </div>
+        <footer class="foot bg-dark " style:"font-size:22px;">
+            <h4 class="text-center footmsg">
+                copyright &copy;KrisTech -2022
+
+            </h4>
+        </footer>
+
+    
+</div>
+{% endblock %}

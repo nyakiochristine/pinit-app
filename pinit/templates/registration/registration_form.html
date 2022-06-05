@@ -1,0 +1,49 @@
+{% extends 'registration/base.html'%}
+{% load bootstrap5 %}
+{% block content %}
+
+<div class = 'container-fluid'>
+    <h2 class = 'in text-center'> Pinit</h2>
+    <hr>
+    <div class = 'logo text-center'></div>
+        <img src = "https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" width="150" alt="logo">
+        <div class = 'row'>
+            <div class = 'col-md-4'></div>
+
+            <div class ="col-md-4 login">
+                {% if form.errors %}
+                <p> Password or username is incorrect</p>
+                {% endif %}
+                <div class = 'card card-default'>
+                    <div class = 'card-heading'>
+                        <h4 class="text-center"> Sign Up</h4>
+                    </div>
+                    <div class = 'card-body'>
+                        <form action="/accounts/register/" method="POST">
+                            {% csrf_token %} {% bootstrap_form form %}
+                            <div class = 'form-group'>
+                                <input type="submit" class = 'btn btn-primary' value="Sign Up">
+                                <input type="hidden" name="next" value="{{next}}" >
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+                <div class="section" id="sec3">
+                    <p> Oh, Do you have an account?  <a href="/accounts/login/">Sign In</a></p>
+                </div>
+                <div class ='col-md-4'><div>
+                    <hr>
+
+            </div>
+            
+            <footer class="foot bg-dark " style:"font-size:22px;">
+                <h4 class="text-center footmsg">
+                    copyright &copy;KrisTech -2022
+    
+                </h4>
+            </footer>
+    
+
+</div>
+{% endblock %}
