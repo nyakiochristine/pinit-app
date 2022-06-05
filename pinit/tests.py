@@ -29,7 +29,38 @@ class ProfilesTestClass(TestCase):
     def tearDown(self):
         Images.objects.all().delete()
         
+class ImagesTestCase(TestCase):
+    def setUp(self):
+        self.image = Images(image='/pic1',captions:"testing this class", profile=self.user,dateposted='05/06/2022')
+        self.image.save()
         
+    def tearDown(self):
+        Images.objects.all().delete()
+        
+class CommentTestCase(TestCase):
+    def setUp(self):
+        self.comment = Comment(comment='test comment', image='/pic',user=self.user,posted=auto_now())
+        
+    
+    def test_instance(self):
+        self.assertTrue(isinstance(self.comment,Comments))
+        
+    
+    def test_save_method(self):
+        comment=Comment.objects.all()
+        self.assertTrue(len(comment) > 0)
+        
+        
+    def test_delete_method(self):
+        self.comment.delete_comment()
+        comment= Comment.objects.all()
+        self.assertTrue(len(comment) == 0)
+        
+        
+        
+    def tearDown(self):
+            Comments.objects.all().delete()
+
     
         
         
