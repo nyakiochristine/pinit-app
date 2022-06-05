@@ -7,7 +7,7 @@ from django.contrib.auth.models import  User
 # Create your models here.
 #classes:profile,images, commenting
 
-class Profile(models.Model):
+class Profiles(models.Model):
     bio = models.CharField(max_length=200)
     image =models.ImageField(blank=True)
     user =models.OneToOneField(User,ondelete=models.CASCADE, primary_key=True)
@@ -40,7 +40,23 @@ class Images(models.Model):
         
     def delete_image(self):
         self.delete()
-        
+    
+    
+    @classmethod  
+    def get_image_by_id(cls,id):
+        image = Images.objects.get(pk=id)
+        return image
+    
+    @classmethod
+    def get_profile_images(cls,profile):
+        images = Images.objects.filter(profile__pk= profile)
+        return images
+    @classmethod
+    def get_all_images(cls):
+        images = Images.objects.all()
+        return images 
+    
+    
         
     
     
