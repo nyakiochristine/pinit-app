@@ -19,3 +19,11 @@ def  search(request):
     else:
         message = 'Search Username'
         return render(request, 'search.html', {'message':message})
+    
+    def profile(request,username):
+        user= User.get(username=username)
+        profile = Profiles.filter_profile_by_id(user.id)
+        title = f'{user.username} Profile'
+        images = Images.get_profile_images(user.id)
+        return render(request, 'profile/profile.html', {'title':title, 'profile':profile, 'images':images})
+        
