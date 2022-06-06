@@ -3,7 +3,7 @@ from .models import Profiles,Comment,Images
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-
+from .forms import PostCommentForm,PostProfileForm,PostImageForm
 
 # Create your views here.
 def home(request):
@@ -20,10 +20,25 @@ def  search(request):
         message = 'Search Username'
         return render(request, 'search.html', {'message':message})
     
-    def profile(request,username):
-        user= User.get(username=username)
-        profile = Profiles.filter_profile_by_id(user.id)
-        title = f'{user.username} Profile'
-        images = Images.get_profile_images(user.id)
-        return render(request, 'profile/profile.html', {'title':title, 'profile':profile, 'images':images})
+def profile(request,username):
+    user= User.get(username=username)
+    profile = Profiles.filter_profile_by_id(user.id)
+    title = f'{user.username} Profile'
+    images = Images.get_profile_images(user.id)
+    return render(request, 'profile/profile.html', {'title':title, 'profile':profile, 'images':images})
+
+
+
+def edit_profile(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = PostProfileForm(request.POST,request.FILES)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.user = current_user
+            profile.save()
+            return redirect('editProfile')
+        else:
+            form = PostProfileForm()
+        return render(request,'profile/prof-edit.html',{'form':form})
         
