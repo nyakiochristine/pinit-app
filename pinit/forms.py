@@ -1,15 +1,15 @@
 from django import forms
 from .models import Profiles,Comment,Images
-from django.contrib.auth.forms import AuthentificationForm
+from django.contrib.auth.forms import AuthenticationForm
 
 
 
-class LoginForm(AuthentificationForm):
-    username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'
+class LoginForm(AuthenticationForm):
+    username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control',
                                                             'placeholder':'Username'}))
     
     
-password = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'
+password = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control',
                                                         'placeholder':'Password'}))
 
 class PostImageForm(forms.ModelForm):
