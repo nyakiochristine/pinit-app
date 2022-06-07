@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+{% block content %}
+{% load static %}
+<div class="container-top">
+    <div class="row">
+        <div class="col-col-md-12 text-center">
+            <h1 class="text-center ser"> Search results of {{message}}</h2>
+
+        </div>
+    </div>
+    <div class="row">
+        {% if profiles %} 
+        {% for profile in profiles %}
+        <div class="col-md-3  search-res">
+            <img src="{{ profile.image.cdn_url }}" alt="profile photo" >
+            
+            <img src="" alt="avatar">
+            
+            <p class="search-username">{{ profile.user.username }}</p>
+            <p> <a class="btn btn-primary" href="{% url 'profile' %}"> See Profile</a></p>
+
+        
+        </div>
+        {% endfor %} {% else %}
+        <div class="col-md-12">
+            <h3 class="mess text-center">  No results {{message}}</h3>
+        </div>
+
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
