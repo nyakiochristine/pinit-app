@@ -24,7 +24,7 @@ def  search(request):
 
 @login_required(login_url='/accounts/login/')    
 def profile(request,username):
-    user= User.get(username=username)
+    user= User(username=username)
     profile = Profiles.filter_profile_by_id(user.id)
     title = f'{user.username} Profile'
     images = Images.get_profile_images(user.id)

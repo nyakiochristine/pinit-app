@@ -1,0 +1,31 @@
+{% extends 'base.html' %}  {% block content %}
+
+<div class="container-fluid top">
+    <div class="row text-center">
+        <div class="col-md-12 text-center">
+            {% for image in images %}
+            <div class ="images">
+                <img src="" alt="avatar">
+                <a href="{% url 'profile' username=image.profile.username %}" class="name">{{ image.profile.username }}</a>
+            </div>
+            <hr>
+            <div class=" com">
+                <img src="{{image.image.url}}" class="img-responsive img-thumbnail" style="max-width:500px;max-height:400px;" data-toggle="collapse" data-target="modal" data-target="#{{image.id}}">
+                <br>
+                <p class="card-text">Captions:{{image.captions|safe}}</p>
+                {% for comment in comments %}
+                <p class="card-text"> Comment:{{comment.comment}}</p>
+                {% endfor %}
+                <ul class="list-inline home">
+                    <li class="list-inline-item"> Like
+                        <a href="#"><i class="fa fa-heart-o fa-2x" aria-hidden="true"></a>
+                    </li>
+
+                </ul>
+            {% endfor %}
+            </div>
+        
+        </div>
+    </div>
+</div>
+{% endblock %}

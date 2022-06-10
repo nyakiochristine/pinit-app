@@ -26,7 +26,7 @@ class Profiles(models.Model):
         return profile
     
     @classmethod
-    def get_profile_by_id(self, id):
+    def get_profile_by_id(cls, id):
         profile = cls.objects.get(user=id)
         return profile
     
@@ -73,12 +73,7 @@ class Images(models.Model):
     def get_all_images(cls):
         images = Images.objects.all()
         return images 
-    
-    
-        
-    
-    
-    
+
 class Comment(models.Model):
     comment = models.CharField(max_length=100)
     posted = models.DateTimeField(auto_now_add =True)
