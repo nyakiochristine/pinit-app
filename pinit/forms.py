@@ -17,7 +17,7 @@ class PostImageForm(forms.ModelForm):
     captions = forms.CharField(max_length=200)
     
     class Meta:
-        models = Images
+        model = Images
         exclude = ('posted','profile')
         
         

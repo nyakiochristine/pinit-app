@@ -3,8 +3,8 @@
 <div class = "container-fluid">
     <div class = "row">
         <div class = "col-md-8 poem">
-            <form action="{% url 'postImage'%}" method="POST">
-                {% csrf_token %} {% bootstrap_form form %}
+            <form action="{% url 'postImage' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %} 
                 <input type="submit" class="btn btn-primary btn-large" value="POST">
             </form>
         </div>

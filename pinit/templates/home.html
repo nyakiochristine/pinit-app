@@ -10,7 +10,7 @@
             </div>
             <hr>
             <div class=" com">
-                <img src="{{image.image.url}}" class="img-responsive img-thumbnail" style="max-width:500px;max-height:400px;" data-toggle="collapse" data-target="modal" data-target="#{{image.id}}">
+                <img src="{{image.url}}" class="img-responsive img-thumbnail" style="max-width:500px;max-height:400px;" data-toggle="collapse" data-target="modal" data-target="#{{image.id}}">
                 <br>
                 <p class="card-text">Captions:{{image.captions|safe}}</p>
                 {% for comment in comments %}
