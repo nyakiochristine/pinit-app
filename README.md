@@ -99,6 +99,10 @@ Open the browser on `http://localhost:8000/`
 
 + `127.0.0.1:5000`
 
+### Live Link
+
+'https://insat123b.herokuapp.com/'
+
 ## Technologies used
 
 + [Python3.8](https://www.python.org/)

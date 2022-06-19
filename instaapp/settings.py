@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+from ctypes import cast
 from pathlib import Path
 from pickle import APPEND
 import os
@@ -34,9 +35,9 @@ SECRET_KEY = config('SECRET_KEY')
     #api_secret = "PQ-s6behlA021Cf7hpYZpjcyFxQ" 
 #)
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config('DEBUG', default=True, cast=bool)
 
-Mode = config('MODE', default=None, cast=bool)
+Mode = config('MODE',cast=bool)
 MODE=config("MODE", default="dev")
 
 # Application definition

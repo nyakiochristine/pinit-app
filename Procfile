@@ -1,1 +1,1 @@
-web: gunicorn pinit.wsgi --log-file -
+web: gunicorn instaapp.wsgi --log-file -
